@@ -162,7 +162,7 @@ void OnTxTimeout(void){
 void OnCadDone(bool cadResult){
   if(cadResult){
     Serial.println("Buffer bussy");
-    delay(2000);
+    delay(100);
     Radio.Rx(RX_TIMEOUT_VALUE);
   }
   else{

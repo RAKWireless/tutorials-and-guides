@@ -166,14 +166,19 @@ void OnRxTimeout(void)
 void OnRxError(void)
 {
   Serial.println("OnRxError");
-  Radio.Rx(RX_TIMEOUT_VALUE);
+  delay(100);
+  Radio.Standby();
+  Radio.SetCadParams(LORA_CAD_08_SYMBOL, LORA_SPREADING_FACTOR + 13, 10, LORA_CAD_ONLY, 0);
+  Radio.StartCad();
 }
 
 void OnCadDone(bool cadResult){
   if(cadResult){
-    Serial.println("Buffer bussy");
-    delay(2000);
-    Radio.Rx(RX_TIMEOUT_VALUE);
+    Serial.println("Busy Buffer");
+    delay(100);
+    Radio.Standby();
+    Radio.SetCadParams(LORA_CAD_08_SYMBOL, LORA_SPREADING_FACTOR + 13, 10, LORA_CAD_ONLY, 0);
+    Radio.StartCad();
   }
   else{
     Serial.println("Channel Free, I am sending data");  
