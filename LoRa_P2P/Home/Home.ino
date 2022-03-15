@@ -119,7 +119,7 @@ void OnRxDone(uint8_t *payload, uint16_t size, int16_t rssi, int8_t snr)
 
 	for (int idx = 0; idx < size; idx++)
 	{
-		Serial.print(RcvBuffer[idx], HEX);
+		Serial.printf("%02X ", RcvBuffer[idx]);
 	}
 	Serial.println("");
 
@@ -161,9 +161,11 @@ void OnTxTimeout(void){
 }
 void OnCadDone(bool cadResult){
   if(cadResult){
-    Serial.println("Buffer bussy");
+    Serial.println("Busy Buffer");
     delay(100);
-    Radio.Rx(RX_TIMEOUT_VALUE);
+    Radio.Standby();
+    Radio.SetCadParams(LORA_CAD_08_SYMBOL, LORA_SPREADING_FACTOR + 13, 10, LORA_CAD_ONLY, 0);
+    Radio.StartCad();
   }
   else{
     Serial.println("Channel Free, I am sending data");  

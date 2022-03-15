@@ -1,3 +1,5 @@
+# Getting Started with WisBlock Starter Kit - Hello Wisblock!
+
 ## Introduction
 
 This repository includes a simple tutorial for test WisBlock Starte Kit.
@@ -19,10 +21,9 @@ A little code on Arduino to make a Blinking and send a 'Hello World' through Ser
 
 ## How to use
 
-- Choose the topic that you are interested in learning and access to the folder
 - Download the folder as a zip file or clone as `$git clone https://github.com/RAKWireless/tutorials/hello_world`
 - Open the code in Arduino IDE
-- Install the libraries for RAKwireless showed in this tutorial (Add link to tutorial when it's ready)
+- Install the libraries for RAKwireless showed in this [tutorial](https://www.hackster.io/alveiroRakwireless/first-steps-basic-rak-module-wisblock-starter-kit-c4fec5)
 - Run and Upload the code
 
 [RAKwireless official Documentation Site](https://docs.rakwireless.com/Introduction/)

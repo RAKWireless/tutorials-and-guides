@@ -147,7 +147,7 @@ void OnRxDone(uint8_t *payload, uint16_t size, int16_t rssi, int8_t snr)
 
   for (int idx = 0; idx < size; idx++)
   {
-    Serial.print(RcvBuffer[idx], HEX);
+    Serial.printf("%02X ", RcvBuffer[idx]);
   }
   Serial.println("");
   delay(100);
