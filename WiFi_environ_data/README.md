@@ -1,4 +1,4 @@
-# Getting Started with RUI and WisBlock - LoRa P2P Communication
+# Send data to the thingSpeak, using the WisBlock Module based on ESP32
 
 ## Introduction
 
@@ -11,11 +11,15 @@ The objective is to learn how to send data to a cloud platform using Wifi, speci
 
 [WisBlock Base RAK5005-0](https://store.rakwireless.com/products/rak5005-o-base-board) 
 
-[WisBlock Base RAK1901](https://store.rakwireless.com/products/rak1906-bme680-environment-sensor)
+[WisBlock Base RAK1906](https://store.rakwireless.com/products/rak1906-bme680-environment-sensor)
 
 Or you can purchase together in:
 
 [Helium Developer Kit](https://store.rakwireless.com/products/helium-developer-kit)
+
+[WisBlock Kit](https://store.rakwireless.com/products/wisblock-kit?variant=37758662017222)
+
+[WisBlock Connected Box](https://store.rakwireless.com/products/wisblock-connected-box)
 
 ## Contents 
 
