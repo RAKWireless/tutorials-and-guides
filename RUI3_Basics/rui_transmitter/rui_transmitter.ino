@@ -1,13 +1,26 @@
 #include "rak1901.h"
 
-rak1901 rak1901;
-//union structure for read and store sensor data
-union{
-  float val_fl;
-  uint8_t val_arr[4];
-}temp, hum;
+/*************************************
 
-uint8_t payload[8];// simple payload to LoRaP2P
+   LoRaWAN band setting:
+     RAK_REGION_EU433
+     RAK_REGION_CN470
+     RAK_REGION_RU864
+     RAK_REGION_IN865
+     RAK_REGION_EU868
+     RAK_REGION_US915
+     RAK_REGION_AU915
+     RAK_REGION_KR920
+     RAK_REGION_AS923
+
+ *************************************/
+
+#define OTAA_BAND     (RAK_REGION_AU915) 
+#define OTAA_DEVEUI   {0x60, 0x81, 0xF9, 0x7F, 0x45, 0x4C, 0x84, 0xFD}
+#define OTAA_APPEUI   {0x60, 0x81, 0xF9, 0x62, 0xB9, 0x08, 0x55, 0x1E}
+#define OTAA_APPKEY   {0xEB, 0x30, 0x13, 0x04, 0x04, 0x3A, 0x48, 0x20, 0x1D, 0x8C, 0x9C, 0x02, 0x39, 0x30, 0xA8, 0x23} 
+
+rak1901 rak1901;
 
 void setup() {
   // put your setup code here, to run once:
@@ -18,14 +31,7 @@ void setup() {
   rak1901.init();//Start rak1901
   Serial.println("=============Temperature and Humidity Reading =========");
   
-// LoRa P2P Configuration
-    Serial.printf("Set Node device work mode %s\r\n", api.lorawan.nwm.set(0) ? "Success" : "Fail");
-    Serial.printf("Set P2P mode frequency %s\r\n", api.lorawan.pfreq.set(915000000) ? "Success" : "Fail");
-    Serial.printf("Set P2P mode spreading factor %s\r\n", api.lorawan.psf.set(12) ? "Success" : "Fail");
-    Serial.printf("Set P2P mode bandwidth %s\r\n", api.lorawan.pbw.set(125) ? "Success" : "Fail");
-    Serial.printf("Set P2P mode code rate %s\r\n", api.lorawan.pcr.set(0) ? "Success" : "Fail");
-    Serial.printf("Set P2P mode preamble length %s\r\n", api.lorawan.ppl.set(8) ? "Success" : "Fail");
-    Serial.printf("Set P2P mode tx power %s\r\n", api.lorawan.ptp.set(22) ? "Success" : "Fail");
+  void lora_init();
 }
 
 void loop() {
@@ -60,3 +66,75 @@ void loop() {
     delay(5000);
     
   }
+
+  void lora_init()
+{
+   // OTAA Device EUI MSB first
+  uint8_t node_device_eui[8] = OTAA_DEVEUI;
+  // OTAA Application EUI MSB first
+  uint8_t node_app_eui[8] = OTAA_APPEUI;
+  // OTAA Application Key MSB first
+  uint8_t node_app_key[16] = OTAA_APPKEY;
+
+  if (!api.lorawan.appeui.set(node_app_eui, 8)) {
+    Serial.printf("LoRaWan OTAA - set application EUI is incorrect! \r\n");
+    return;
+  }
+  if (!api.lorawan.appkey.set(node_app_key, 16)) {
+    Serial.printf("LoRaWan OTAA - set application key is incorrect! \r\n");
+    return;
+  }
+  if (!api.lorawan.deui.set(node_device_eui, 8)) {
+    Serial.printf("LoRaWan OTAA - set device EUI is incorrect! \r\n");
+    return;
+  }
+
+  if (!api.lorawan.band.set(OTAA_BAND)) {
+    Serial.printf("LoRaWan OTAA - set band is incorrect! \r\n");
+    return;
+  }
+  if (!api.lorawan.deviceClass.set(RAK_LORA_CLASS_A)) {
+    Serial.printf("LoRaWan OTAA - set device class is incorrect! \r\n");
+    return;
+  }
+  if (!api.lorawan.njm.set(RAK_LORA_OTAA))  // Set the network join mode to OTAA
+  {
+    Serial.
+  printf("LoRaWan OTAA - set network join mode is incorrect! \r\n");
+    return;
+  }
+  if (!api.lorawan.join())  // Join to Gateway
+  {
+    Serial.printf("LoRaWan OTAA - join fail! \r\n");
+    return;
+  }
+
+  /** Wait for Join success */
+  while (api.lorawan.njs.get() == 0) {
+    Serial.print("Wait for LoRaWAN join...");
+    api.lorawan.join();
+    delay(10000);
+  }
+
+  if (!api.lorawan.adr.set(true)) {
+    Serial.printf
+  ("LoRaWan OTAA - set adaptive data rate is incorrect! \r\n");
+    return;
+  }
+  if (!api.lorawan.rety.set(1)) {
+    Serial.printf("LoRaWan OTAA - set retry times is incorrect! \r\n");
+    return;
+  }
+  if (!api.lorawan.cfm.set(1)) {
+    Serial.printf("LoRaWan OTAA - set confirm mode is incorrect! \r\n");
+    return;
+  }
+
+  /** Check LoRaWan Status*/
+  Serial.printf("Duty cycle is %s\r\n", api.lorawan.dcs.get()? "ON" : "OFF"); // Check Duty Cycle status
+  Serial.printf("Packet is %s\r\n", api.lorawan.cfm.get()? "CONFIRMED" : "UNCONFIRMED");  // Check Confirm status
+  uint8_t assigned_dev_addr[4] = { 0 };
+  api.lorawan.daddr.get(assigned_dev_addr, 4);
+  Serial.printf("Device Address is %02X%02X%02X%02X\r\n", assigned_dev_addr[0], assigned_dev_addr[1], assigned_dev_addr[2], assigned_dev_addr[3]);  // Check Device Address
+  Serial.println("");
+}
