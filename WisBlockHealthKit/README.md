@@ -9,7 +9,7 @@ The objective is to show an example easy to replicate for the user but, that can
 
 [WisBlock Core RAK4631](https://store.rakwireless.com/products/rak4631-lpwan-node?variant=37505443987654)
 
-[WisBlock Base RAK19001](https://store.rakwireless.com/products/rak19001-wisblock-dual-io-base-board)
+[WisBlock Base RAK19007](https://store.rakwireless.com/products/rak19007-wisblock-base-board-2nd-gen)
 
 [Heart Rate Sensor](https://store.rakwireless.com/products/wisblock-heart-rate-sensor-rak12012)
 
