@@ -1,4 +1,4 @@
-#include "TOFsensor.h"
+#include "accelerometer.h"
 
 #include <Arduino.h>
 #include <LoRaWan-RAK4630.h>  //http://librarymanager/All#SX126x
@@ -247,12 +247,21 @@ void fillBuffer() {
   uint32_t i = 0;
   memset(m_lora_app_data.buffer, 0, LORAWAN_APP_DATA_BUFF_SIZE);
   m_lora_app_data.port = gAppPort;
-  uint16_t Displacement = (returnValueX()*1000);
-  //Serial.println(Displacement);
+ uint16_t Xaxis = (returnValueX());
+  uint16_t Yaxis = (returnValueY());
+  uint16_t Zaxis = (returnValueZ());
 
+  Serial.println(Xaxis);
+  Serial.println(Yaxis);
+  Serial.println(Zaxis);
   //Create the payload
   m_lora_app_data.buffer[i++] = 0x01;
-  m_lora_app_data.buffer[i++] = (uint8_t)(Displacement >> 8);
-  m_lora_app_data.buffer[i++] = (uint8_t)Displacement;
+  m_lora_app_data.buffer[i++] = (uint8_t)(Xaxis >> 8);
+  m_lora_app_data.buffer[i++] = (uint8_t)Xaxis;
+  m_lora_app_data.buffer[i++] = (uint8_t)(Yaxis >> 8);
+  m_lora_app_data.buffer[i++] = (uint8_t)Yaxis;
+  m_lora_app_data.buffer[i++] = (uint8_t)(Zaxis >> 8);
+  m_lora_app_data.buffer[i++] = (uint8_t)Zaxis;
   m_lora_app_data.buffsize = i;
 }
+
