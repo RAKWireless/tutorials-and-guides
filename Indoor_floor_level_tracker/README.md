@@ -34,7 +34,7 @@ After that you can put this project in an enclossure and you will get a final pr
 ## Firmware development 
 
 - [Here](https://github.com/RAKWireless/tutorials-and-guides/tree/master/Indoor_floor_level_tracker/floor_sensor_readings) you will find the firmware to read data from the sensor and send it to DataCake using LoRaWAN and Cellular network
-- [Here](https://github.com/RAKWireless/tutorials-and-guides/tree/master/Indoor_floor_level_tracker/floor_sensor_readings) you will find the firmware and instructions to replicate the Blues accelerator using WisBlock.
+- [Here](https://github.com/RAKWireless/tutorials-and-guides/tree/master/Indoor_floor_level_tracker/floor_level_blues_rak) you will find the firmware and instructions to replicate the Blues accelerator using WisBlock.
 
 If you need more information you can visit the next sites:
 
