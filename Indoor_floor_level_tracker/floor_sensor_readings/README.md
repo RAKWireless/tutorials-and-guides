@@ -31,6 +31,7 @@ Finally, if you are sending data using the Notecard, you need to first send the 
 
 ```
 #define PRODUCT_UID "com.company.username:projectname"
+```
 
 ### LoRaWAN communication
 
