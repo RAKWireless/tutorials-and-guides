@@ -7,7 +7,7 @@
 #include "WB_press_sensor.h"
 
 // Add the Product UID gotten in Blues Notehub
-#define PRODUCT_UID "com.company.username:projectname"
+#define PRODUCT_UID "com.company.username.projectname"//Change for your Product UID
 Notecard notecard;
 //@brief function to config Blues Notecard
 void blues_card_conf(){
@@ -28,7 +28,7 @@ void send_data_using_blues(){
 
     J *req = notecard.newRequest("note.add");
     if (req != NULL) {
-    JAddStringToObject(req, "file", "floor.qo");
+    JAddStringToObject(req, "file", "data.qo");
     Serial.println("Communication enabled");
     JAddBoolToObject(req, "sync", true);
     Serial.println("Sync Ready!");

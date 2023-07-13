@@ -32,11 +32,11 @@ void loop() {
   temp = read_bar().temp*100;
   press = read_bar().press*100;
   alt = readAltitude(1013.25)*100;
-  Serial.printf("temp: %d, press: %d, alt: %d \n", temp, press, alt);
+  Serial.printf("temp: %d, press: %d, alt: %d \n", temp, press, alt); //Just to debug options
   //@brief function to send data using Blues when there is an error in LoRa Connection
   if(not_LoRa_connection == true){
       send_data_using_blues();
-      delay(300000);
+      delay(3*60*1000);
   }
   delay(10000);
 }

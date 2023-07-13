@@ -7,23 +7,20 @@ function Decoder(bytes, port) {
     if (port === 2) {
         
         // Adapt this to the payload byte structure of the messages your device is sending
-        var floor = bytes[0];
-        var motion = bytes[1];
-        var lon = ((bytes[2] << 24)|(bytes[3] << 16)|(bytes[4] << 8)|(bytes[5]))/10000000;
-        var lat = ((bytes[6] << 24)|(bytes[7] << 16)|(bytes[8] << 8)|(bytes[9]))/10000000;
-        var battery = bytes[4] / 10.0;
+        var temperature = ((bytes[0] << 16)|(bytes[1] << 8)|(bytes[2]))/100;
+        var pressure = ((bytes[3] << 16)|(bytes[4] << 8)|(bytes[5]))/100;
+        var altitude= ((bytes[6] << 16)|(bytes[7] << 8)|(bytes[8]))/100;
         
         console.log("received sensor data");
         
         // Working with Location
-        decoded.device_location = "(" + lat + "," + lon + ")";
+        decoded.Temperature = temperature;
         
         // Working with battery
-        decoded.battery = battery
+        decoded.Pressure = pressure
         
         // Working with Sensor data
-        decoded.movement= motion;
-        decoded.floor = floor;
+        decoded.Altitude = altitude;
         
         // Working with status and booleans
         decoded.leakage_detected = false;

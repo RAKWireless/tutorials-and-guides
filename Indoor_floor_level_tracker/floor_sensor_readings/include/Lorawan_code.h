@@ -65,9 +65,9 @@ static lmh_callback_t g_lora_callbacks = {BoardGetBatteryLevel, BoardGetUniqueId
                                         lorawan_rx_handler, lorawan_has_joined_handler, lorawan_confirm_class_handler, lorawan_join_failed_handler
                                        };
 //OTAA keys !!!! KEYS ARE MSB !!!! Update it with your values!
-uint8_t nodeDeviceEUI[8] = {0x00, 0x00, 0xD5, 0x7E, 0xD0, 0x05, 0xE5, 0x7E};
-uint8_t nodeAppEUI[8] = {0x00, 0x00, 0x09, 0xFF, 0xFE, 0x06, 0x78, 0x86};
-uint8_t nodeAppKey[16] = {0xEC, 0x46, 0x26, 0xE3, 0xCF, 0x5B, 0x4F, 0x1D, 0xD0, 0x20, 0x56, 0x0D, 0x5C, 0x00, 0x00, 0x00};
+uint8_t nodeDeviceEUI[8] = {0x00, 0xB3, 0xD5, 0x7E, 0xD0, 0x05, 0xE5, 0x7E};
+uint8_t nodeAppEUI[8] = {0x00, 0x1F, 0x09, 0xFF, 0xFE, 0x06, 0x78, 0x86};
+uint8_t nodeAppKey[16] = {0x00, 0x46, 0x26, 0xE3, 0xCF, 0x5B, 0x4F, 0x1D, 0xD0, 0x20, 0x56, 0x0D, 0x5C, 0x35, 0xFD, 0x15};
 // ABP keys
 uint32_t nodeDevAddr = 0x260116F8;
 uint8_t nodeNwsKey[16] = {0x7E, 0xAC, 0xE2, 0x55, 0xB8, 0xA5, 0xE2, 0x69, 0x91, 0x51, 0x96, 0x06, 0x47, 0x56, 0x9D, 0x23};
@@ -75,7 +75,7 @@ uint8_t nodeAppsKey[16] = {0xFB, 0xAC, 0xB6, 0x47, 0xF3, 0x58, 0x45, 0xC7, 0x50,
 
 // Private defination
 #define LORAWAN_APP_DATA_BUFF_SIZE 64                     /**< buffer size of the data to be transmitted. */
-#define LORAWAN_APP_INTERVAL 60000                        /**< Defines for user timer, the application data transmission interval. 20s, value in [ms]. */
+#define LORAWAN_APP_INTERVAL 120000                        /**< Defines for user timer, the application data transmission interval. 20s, value in [ms]. */
 uint8_t m_lora_app_data_buffer[LORAWAN_APP_DATA_BUFF_SIZE];            //< Lora user application data buffer.
 lmh_app_data_t m_lora_app_data = {m_lora_app_data_buffer, 0, 0, 0, 0}; //< Lora user application data structure.
 
