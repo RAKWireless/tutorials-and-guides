@@ -28,12 +28,9 @@
 #include <Adafruit_SSD1306.h>
 #endif
 
-// Uncomment to view Note requests from the Host
-// #define DEBUG_NOTECARD
-
 // This is the unique Product Identifier for your device
 #ifndef PRODUCT_UID
-#define PRODUCT_UID "com.my-company.my-name:my-project" // "com.my-company.my-name:my-project"
+#define PRODUCT_UID "com.rakwireless.external.alveiro.erazo:testnumber1" // "com.my-company.my-name:my-project"
 #pragma message "PRODUCT_UID is not defined in this example. Please ensure your Notecard has a product identifier set before running this example or define it in code here. More details at https://dev.blues.io/notehub/notehub-walkthrough/#finding-a-productuid"
 #endif
 
@@ -41,7 +38,7 @@
 #define IDLE_UPDATE_PERIOD (1000 * 60 * 5)
 #define LIVE_UPDATE_PERIOD (1000 * 60 * 1)
 #define NO_MOVEMENT_THRESHOLD_SCALE_MS \
-  (1000) // No movement threshold given in seconds.
+  (1000 * 60 * 1) // No movement threshold given in seconds.
 #define FLOOR_SAMPLE_PERIOD (250)
 #define FLOOR_FILTER_ORDER (10)
 #define FLOOR_OFFSET (0.3)
@@ -75,17 +72,13 @@ Adafruit_SSD1306 display = Adafruit_SSD1306(128, 32, &Wire);
 
 void setup()
 {
-  conf_bar();
-  
-#ifdef DEBUG_NOTECARD
-  notecard.setDebugOutputStream(Serial);
-#endif
   delay(1500);
   Serial.println("Floor Level Detector");
   Serial.println("====================");
-
+  Wire.begin();
+  conf_bar();
   notecard.begin();
-  Serial.println("Tarjeta iniciada");
+  
 
 #ifdef USE_DISPLAY
 #ifdef DISPLAY_POWER_PIN
@@ -99,6 +92,7 @@ void setup()
   display.begin(SSD1306_SWITCHCAPVCC, 0x3C);
   Serial.println("OLED connected...");
 #endif
+
 
   double coef[FLOOR_FILTER_ORDER];
   for (int i = 0; i < FLOOR_FILTER_ORDER; i++)
@@ -146,11 +140,10 @@ void setup()
   req = notecard.newRequest("card.dfu");
   if (req != NULL)
   {
-    JAddStringToObject(req, "name", "wisblock");
+    JAddStringToObject(req, "name", "stm32");
     JAddBoolToObject(req, "on", true);
     notecard.sendRequest(req);
   }
-  Serial.println("Tarjeta Configurada");
 
   // Check Environment Variables
   fetchEnvironmentVariables(state);
@@ -172,7 +165,6 @@ void setup()
     }
   }
   lastUpdateMs = millis();
-  Serial.println("Setup Ready!");
 }
 
 void resetFloorFilter(double floor)
@@ -209,7 +201,6 @@ void loop()
       }
       state.variablesUpdated = false;
     }
-    
   }
 
   const uint32_t currentMillis = millis();
@@ -248,7 +239,7 @@ void loop()
           "Waiting for Environment Variables from the Notecard");
     }
   }
-  
+  delay(1*60*1000);
 }
 
 bool publishSensorReadings(sensorReadings &readings, uint32_t currentMillis)
@@ -455,10 +446,8 @@ void sendSensorReadings(const sensorReadings &readings, bool alarm)
   J *req = notecard.newRequest("note.add");
   if (req != NULL)
   {
-    JAddStringToObject(req, "file", "data.qo");
-    Serial.println("Communication enabled");
     JAddBoolToObject(req, "sync", true);
-    Serial.println("Sync Ready!");
+    JAddStringToObject(req, "file", "floor.qo");
     J *body = JCreateObject();
     if (body != NULL)
     {
@@ -471,11 +460,10 @@ void sendSensorReadings(const sensorReadings &readings, bool alarm)
                          readings.currentFloor - state.lastFloor);
       JAddStringToObject(body, "app", "nf1");
       JAddItemToObject(req, "body", body);
-      
-    }
-    notecard.sendRequest(req);
+      notecard.sendRequest(req);
 
-    Serial.println("Sending floor.qo");
+      Serial.println("Sending floor.qo");
+    }
   }
 
   if (alarm)

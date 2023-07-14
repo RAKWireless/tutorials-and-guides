@@ -54,12 +54,12 @@ bar_data read_bar() {
   sensor_reading.press = pressure.pressure;
   sensor_reading.temp = temp.temperature;
   return(sensor_reading);
+  delay(1000);
 }
 
 float readAltitude(float seaLevel) {
   float atmospheric = read_bar().press;
-  // return 44330.0 * (1.0 - pow(atmospheric / seaLevel, 0.1903));
-  return 44330.0 * abs(pow(atmospheric / seaLevel, 0.1903) - 1.0);
+  return 44330.0 * (1.0 - pow(atmospheric / seaLevel, 0.1903));
 }
 
 #endif
