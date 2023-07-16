@@ -2,11 +2,11 @@
 
 ## Introduction
 
-This project include the code for a professional IoT project related with monitoring temperature and humidity, it uses a Environment Sensor BOSCH BME680, to determine temperature and humidity in a indoor environment. The communication will be done using LoRaWAN and NB-IoT.
+This project includes the code for a professional IoT project related to monitoring temperature and humidity, it uses an Environment Sensor BOSCH BME680, to determine temperature and humidity in a indoor environment. The communication will be done using LoRaWAN and NB-IoT.
 
 ## Hardware
 
-For this tutorial the next materials will be necessary:
+For this tutorial, the next materials will be necessary:
 
 [WisBlock Core RAK4631](https://store.rakwireless.com/products/rak4631-lpwan-node)
 
@@ -14,7 +14,7 @@ For this tutorial the next materials will be necessary:
 
 [Environment Sensor BOSCH BME680 RAK1906](https://store.rakwireless.com/products/rak1906-bme680-environment-sensor)
 
-And for the NB-IoT communication we will use the Blues Wireless Products:
+And for the NB-IoT communication, we will use the Blues Wireless Products:
 
 [Blues NoteCard](https://shop.blues.io/collections/notecard/products/note-nbgl-500)
 
@@ -22,22 +22,22 @@ And for the NB-IoT communication we will use the Blues Wireless Products:
 
 ## Hardware Configuration
 
-The hardware configuration is so easy! The WisBlock elements can easily be connected to the board and be fixed using the screws. Conect the RAK1906 Environment Sensor BOSCH BME680 to the Slot A, and don't forget to connect the LoRaWAN® antenna.
+The hardware configuration is so easy! The WisBlock elements can easily be connected to the board and fixed using the screws. Connect the RAK1906 Environment Sensor BOSCH BME680 to Slot A, and don't forget to connect the LoRaWAN® antenna.
 
 ![components](https://drive.google.com/file/d/1_-QAPF-9coiXJf-0QmAA-eVBymbUOAAv/view?usp=sharing)
 
-The final result, will look as the following:
+The final result will look as the following:
 
 ![finalResult](https://drive.google.com/file/d/1ZxXeD5qLNk9Qdd2K9W3qjFpvYXOpKveH/view?usp=sharing)
 
-The Blues components are easy to connect as well, just connect the Notecard on the Notecarrier and fix it with the screw. Don't forget to connect the antenna before to use it.
+The Blues components are easy to connect as well, just connect the Notecard on the Notecarrier and fix it with the screw. Don't forget to connect the antenna before using it.
 
 ![blues_board](https://drive.google.com/file/d/16v1RT5-pTJdML-JC3usvS3NPl9aGM01W/view?usp=sharing)
 
 
 ## Contents 
 
-The Include folder, has all the code for each module, the main, and a business logic code to acomplish the requirements. It is just a template, the user can change the logic completely. The main file, include the code to read data and send it to LoRaWAN as primary network and NB-IoT as second network.
+The Include folder has all the code for each module, the main, and a business logic code to accomplish the requirements. It is just a template, the user can change the logic completely. The main file, includes the code to read data and send it to LoRaWAN as the primary network and NB-IoT as the second network.
 
 ## How to use
 
