@@ -1,4 +1,4 @@
-# Tracking Assets using LoRaWAN and NB-IoT
+# Temperature and Humidity Monitor using LoRaWAN and NB-IoT
 
 ## Introduction
 
