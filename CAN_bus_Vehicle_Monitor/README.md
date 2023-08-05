@@ -24,15 +24,15 @@ And for the NB-IoT communication, we will use the Blues Wireless Products:
 
 The hardware configuration is so easy! The WisBlock elements can easily be connected to the board and fixed using the screws. Connect the RAK13006 CAN Bus Interface Microchip MCP2518FD I/O Slot, and don't forget to connect the LoRaWAN® antenna.
 
-![components](https://drive.google.com/file/d/1_-QAPF-9coiXJf-0QmAA-eVBymbUOAAv/view?usp=sharing)
+![components](https://drive.google.com/file/d/1qKQmX4n_OPwd6-M8ugyLuPv4IoZAJxxX/view?usp=drive_link)
 
 The final result will look as the following:
 
-![finalResult](https://drive.google.com/file/d/1ZxXeD5qLNk9Qdd2K9W3qjFpvYXOpKveH/view?usp=sharing)
+![finalResult](https://drive.google.com/file/d/1Onid1E6dBJnYVd039O5zRQbnLo53-yOo/view?usp=drive_link)
 
 The Blues components are easy to connect as well, just connect the Notecard on the Notecarrier and fix it with the screw. Don't forget to connect the antenna before using it.
 
-![blues_board](https://drive.google.com/file/d/16v1RT5-pTJdML-JC3usvS3NPl9aGM01W/view?usp=sharing)
+![blues_board](https://drive.google.com/file/d/1psHkY60H3-zI6fZDSvgw9n_LQFWvZeuZ/view?usp=drive_link)
 
 
 ## Contents 
