@@ -4,7 +4,7 @@
 #include <Notecard.h>
 #include <Wire.h>
 #include <floor_tracker.h>
-#include "WB_press_sensor.h"
+#include "env_Sensor.h"
 #include <LoRaWan-RAK4630.h> //http://librarymanager/All#SX126x
 #include <SPI.h>
 
@@ -30,7 +30,7 @@
 
 // This is the unique Product Identifier for your device
 #ifndef PRODUCT_UID
-#define PRODUCT_UID "updatewithyourproductid" // "com.my-company.my-name:my-project"
+#define PRODUCT_UID "com.rakwireless.external.alveiro.erazo:testnumber1" // "com.my-company.my-name:my-project"
 #pragma message "PRODUCT_UID is not defined in this example. Please ensure your Notecard has a product identifier set before running this example or define it in code here. More details at https://dev.blues.io/notehub/notehub-walkthrough/#finding-a-productuid"
 #endif
 
@@ -76,7 +76,7 @@ void setup()
   Serial.println("Floor Level Detector");
   Serial.println("====================");
   Wire.begin();
-  conf_bar();
+  bme680_init();
   notecard.begin();
   
 
@@ -410,8 +410,8 @@ sensorReadings captureSensorReadings()
   sensorReadings readings;
 
   readings.readingTimestamp = millis();
-  readings.temp = read_bar().temp;
-  readings.pressure = read_bar().press;
+  readings.temp = bme680_get().temperature;
+  readings.pressure = bme680_get().pressure;
 
   if (setBaselineFloor)
   {
