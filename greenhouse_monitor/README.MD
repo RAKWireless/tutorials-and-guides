@@ -9,13 +9,13 @@ With this solution it's possible to measure environmental and soil conditions da
 ## Necessary Hardware 
 For this project the following RAKwireless products will be necessary:
 
-- [WisBlock Baseboard RAK19007](https://store.rakwireless.com/products/rak19007-wisblock-base-board-2nd-gen?_pos=1&_sid=042c9c083&_ss=r)
+- [WisBlock Baseboard RAK19001](https://store.rakwireless.com/products/rak19001-wisblock-dual-io-base-board)
 - [WisBlock Core RAK4631](https://store.rakwireless.com/products/rak4631-lpwan-node?variant=37505443987654)
 - [Environment Sensor BOSCH BME680 - RAK1906](https://store.rakwireless.com/products/rak1906-bme680-environment-sensor)
 - [Light Sensor Texas Instruments OPT3001 - RAK1903](https://store.rakwireless.com/products/rak1903-opt3001dnpr-ambient-light-sensor)
 - [Soil Moisture Sensor Atmel ATTINY441 - RAK12023+RAK12035](https://store.rakwireless.com/products/rak12023-rak12035-wisblock-soil-moisture-sensor)
 - WisBlock Blues Carrier Module (To be updated)
-- [Temperature and Humidity Sensor Sensirion SHTC3 - RAK1901](https://store.rakwireless.com/products/rak1901-shtc3-temperature-humidity-sensor) (Optional)
+- [Temperature and Humidity Sensor Sensirion SHTC3 - RAK1901](https://store.rakwireless.com/products/rak1901-shtc3-temperature-humidity-sensor) (Alternative)
 
 
 And the necessary Blues elements will be:
@@ -27,13 +27,13 @@ And the necessary Blues elements will be:
 ## Hardware Connection
 Connecting the WisBlock elements is easy: just plug the core into the core slot, the light and environmental variables sensors in any sensor slot, and finally, connect the RAK12023 and the WisBlock module into the IO slots. 
 
-This time we will use the RAK19007 motherboard, but, [here](https://store.rakwireless.com/collections/wisblock-base) you can select another board. If you have any doubt about the Hardware configuration, you can visit the WisBlock official documentation [here](https://docs.rakwireless.com/Product-Categories/WisBlock/Quickstart/#hardware-setup). The final result that you will get is shown in the next figure:
+This time we will use the RAK19001 motherboard, but, [here](https://store.rakwireless.com/collections/wisblock-base) you can select another board. If you have any doubt about the Hardware configuration, you can visit the WisBlock official documentation [here](https://docs.rakwireless.com/Product-Categories/WisBlock/Quickstart/#hardware-setup). The final result that you will get is shown in the next figure:
 
-![connection](https://i.imgur.com/IfVDgXum.jpg)
+![connection](https://i.imgur.com/0QsJUFTm.jpg)
 
 After that you can put this project in an enclossure and you will get a final product ready to install, like the shown in the next Figure:
 
-![finalproduct](https://i.imgur.com/Bu8KZKCm.jpg)
+![finalproduct](https://i.imgur.com/YQIksaRm.jpg)
 
 ## Firmware development 
 

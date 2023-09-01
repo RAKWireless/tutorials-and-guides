@@ -9,11 +9,11 @@ The project proposes a way to calibrate the sensor by taking a first reading tak
 ## Necessary Hardware 
 For this project the following RAKwireless products will be necessary:
 
-- [WisBlock Baseboard RAK19007](https://store.rakwireless.com/products/rak19007-wisblock-base-board-2nd-gen?_pos=1&_sid=042c9c083&_ss=r)
+- [WisBlock Baseboard RAK19001](https://store.rakwireless.com/products/rak19001-wisblock-dual-io-base-board)
 - [WisBlock Core RAK4631](https://store.rakwireless.com/products/rak4631-lpwan-node?variant=37505443987654)
 - [Barometric Pressure sensor RAK1902](https://store.rakwireless.com/products/rak1902-kps22hb-barometric-pressure-sensor)
 - WisBlock Blues Carrier Module (To be updated)
-- [Water Proof Barometric Pressure Sensor STMicroelectronics LPS33HW](https://store.rakwireless.com/products/wisblock-barometer-wt-sensor-rak12011) (Optional)
+- [Water Proof Barometric Pressure Sensor STMicroelectronics LPS33HW](https://store.rakwireless.com/products/wisblock-barometer-wt-sensor-rak12011) (Alternative)
 
 
 And the necessary Blues elements will be:
@@ -25,11 +25,11 @@ And the necessary Blues elements will be:
 ## Hardware Connection
 Connecting the WisBlock elements is easy: just plug the core into the core slot and the barometer sensor in any sensor slot of the card. This time we will use the RAK19007 motherboard, but, [here](https://store.rakwireless.com/collections/wisblock-base) you can select another board. If you have any doubt about the Hardware configuration, you can visit the WisBlock official documentation [here](https://docs.rakwireless.com/Product-Categories/WisBlock/Quickstart/#hardware-setup). The final result that you will get is shown in the next figure:
 
-![connection](https://i.imgur.com/ibAVC3qm.jpg)(To be updated)
+![connection](https://i.imgur.com/AYcWPP0m.jpg)(To be updated)
 
 After that you can put this project in an enclossure and you will get a final product ready to install, like the shown in the next Figure:
 
-![finalproduct](https://i.imgur.com/Bu8KZKCm.jpg)
+![finalproduct](https://i.imgur.com/xtPaP6Em.jpg)
 
 ## Firmware development 
 
