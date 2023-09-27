@@ -21,7 +21,7 @@ This repository includes simple tutorials to make everything you want with RAKwi
 ## How to use
 
 - Choose the topic that you are interested in learning and access to the folder
-- Download the folder as a zip file or clone as `$git clone https://github.com/RAKWireless/tutorials/"yourfavoritefolder"`
+- Download the folder as a zip file or clone as `$git clone https://github.com/RAKWireless/tutorials/
 - Open the folder downloaded and test and modify the code according to your need
 - If you want more information, visit our official sites:
 
