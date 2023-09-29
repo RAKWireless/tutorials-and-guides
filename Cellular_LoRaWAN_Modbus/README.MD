@@ -36,7 +36,7 @@ This time we will use the RAK19001 motherboard, but, [here](https://store.rakwir
 
 After that you can put this project in an enclossure and you will get a final product ready to install, like the shown in the next Figure:
 
-![finalproduct](https://i.imgur.com/YQIksaRm.jpg)
+![Finalproduct](https://i.imgur.com/xsoS2D5m.png)
 
 ## Firmware development 
 
@@ -71,6 +71,8 @@ Finally, if you are sending data using the Notecard, you need to first send the 
 ### Modbus Server
 
 To test this project you will need modbus devices to use as servers (slaves), this time we will emulate them using the [Pymodbus Library](https://pypi.org/project/pymodbus/) and creating a synchronous server of which you can consult more information about it [here](https://pymodbus.readthedocs.io/en/v1.5.2.post0/source/example/synchronous_server.html), and it is the file `server.py`.
+
+Using the Pymodbus library, we emulate a server with 100 coils, 100 discrete inputs, 100 holding registers, and 100 input registers. The functions to access any of them are ready in the firmware, but to show how it works just read the value of a coil, a holding register and an input register, initialized to 0, 66 and 33 respectively. Reading this data, the final result in Ubidots would look like Figure 6.
 
 ### LoRaWAN communication
 

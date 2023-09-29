@@ -1,3 +1,5 @@
 {
-    "reg_data": {"value": body.reg_data}
+    "coil": {"value": body.coil},
+    "holdingRegister": {"value": body.holdingRegister},
+    "inputRegister": {"value": body.inputRegister}
    }

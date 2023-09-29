@@ -10,7 +10,8 @@ static uint32_t count = 0;
 static uint32_t count_fail = 0;
 static uint32_t timers_init(void);
 
-uint16_t reg_value;
+uint16_t holdingRegister, inputRegister;
+uint8_t coil;
 
 void setup() {
   setupModbusClient();
@@ -28,9 +29,12 @@ void setup() {
 }
 
 void loop() {
-  // Read sensors data each 2 seconds
-  reg_value = readRegister();
-  Serial.printf("temp: %d \n", reg_value); //Just to debug options
+  // Read registers to test the reponse of the server, 
+  // All of them are stored on the device 0x00 and with address 0x00
+  holdingRegister = readHoldingRegisterValues(0x00, 0x00);
+  inputRegister = readInputRegisterValues(0x00, 0x00);
+  coil = readCoilValues(0x00, 0x00);
+  Serial.printf("Holdign Register Value: %d, Input Register Value: %d, coil value: %d \n", holdingRegister, inputRegister, coil); //Just to debug options
   //@brief function to send data using Blues when there is an error in LoRa Connection
   if(not_LoRa_connection == true){
       send_data_using_blues();
@@ -50,8 +54,11 @@ void send_lora_frame(void)
   uint32_t i = 0;
   memset(m_lora_app_data.buffer, 0, LORAWAN_APP_DATA_BUFF_SIZE);
   m_lora_app_data.port = gAppPort;
-  m_lora_app_data.buffer[i++] = (uint8_t)(reg_value  >> 8);
-  m_lora_app_data.buffer[i++] = (uint8_t)(reg_value);
+  m_lora_app_data.buffer[i++] = (uint8_t)(holdingRegister  >> 8);
+  m_lora_app_data.buffer[i++] = (uint8_t)(holdingRegister);
+  m_lora_app_data.buffer[i++] = (uint8_t)(inputRegister  >> 8);
+  m_lora_app_data.buffer[i++] = (uint8_t)(inputRegister);
+  m_lora_app_data.buffer[i++] = (uint8_t)(coil);
   m_lora_app_data.buffsize = i;
 
   lmh_error_status error = lmh_send(&m_lora_app_data, success_send);

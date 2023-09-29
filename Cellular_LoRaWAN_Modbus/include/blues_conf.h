@@ -7,7 +7,7 @@
 #include "modbusBluesRAK.h"
 
 // Add the Product UID gotten in Blues Notehub
-#define PRODUCT_UID ""
+#define PRODUCT_UID " "
 Notecard notecard;
 //@brief function to config Blues Notecard
 void blues_card_conf(){
@@ -23,7 +23,7 @@ void blues_card_conf(){
     notecard.sendRequest(req);
     Serial.println("Notecard configured!");
 }
-//@brief function to read sensors and send data using Blues 
+//@brief function to read registers and send data using Blues 
 void send_data_using_blues(){
 
     J *req = notecard.newRequest("note.add");
@@ -35,7 +35,12 @@ void send_data_using_blues(){
 
     J *body = JCreateObject();
     if (body != NULL) {
-      JAddNumberToObject(body, "reg_data", (double)(readRegister()));
+    // This functions is just read a coil, a holding register and an input register
+    // All of them are stored on the device 0X00 with address 0x00
+    // Change the code according your needs
+      JAddNumberToObject(body, "coil", (double)(readCoilValues(0x00, 0x00)));
+      JAddNumberToObject(body, "holdingRegister", (double)(readHoldingRegisterValues(0x00, 0x00)));
+      JAddNumberToObject(body, "inputRegister", (double)(readInputRegisterValues(0x00, 0x00)));
       JAddItemToObject(req, "body", body);
     }
     notecard.sendRequest(req);

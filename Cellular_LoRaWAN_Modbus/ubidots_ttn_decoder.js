@@ -50,7 +50,9 @@ async function formatPayload(args){
     var decoded = {};
     if (bytes[0] == 1) {
         // If received data is of Environment Monitoring type
-        decoded.register_value = (bytes[0] << 8 | (bytes[1]));
+        decoded.holding_register = (bytes[0] << 8 | (bytes[1]));
+        decoded.input_register = (bytes[2] << 8 | (bytes[3]));
+        decoded.coil_value = (bytes[4]);
     } 
     return {"data": decoded};
   }
