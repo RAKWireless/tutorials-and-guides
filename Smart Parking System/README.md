@@ -2,15 +2,15 @@
 
 ## Introduction
 
-This project includes the code for a professional IoT project related Smart Parking Lot Help Request With Blueswireless And RAKwireless. The communication will be done using LoRaWAN and NB-IoT.
+This project includes the code for a professional IoT project related to Smart Parking Lot Help Request With Blueswireless And RAKwireless. The communication will be done using LoRaWAN and NB-IoT.
 
 ## Hardware
 
-For this tutorial, the next materials will be necessary:
+For this tutorial, the following materials will be necessary:
 
 [WisBlock Core RAK4631](https://store.rakwireless.com/products/rak4631-lpwan-node)
 
-[WisBlock Base RAK19007](https://store.rakwireless.com/products/rak19007-wisblock-base-board-2nd-gen)
+[WisBlock Base RAK19001](https://store.rakwireless.com/products/rak19001-wisblock-dual-io-base-board)
 
 [IO Extension Cable](https://store.rakwireless.com/products/wisblock-io-extension-cable-rak19008)
 
