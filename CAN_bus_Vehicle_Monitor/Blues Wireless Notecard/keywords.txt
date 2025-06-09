@@ -1,0 +1,44 @@
+########################################
+## CLASS
+########################################
+Notecard			KEYWORD1
+
+########################################
+## FUNCTIONS
+########################################
+begin				KEYWORD2
+clearDebugOutputStream		KEYWORD2
+clearTransactionPins		KEYWORD2
+debugSyncStatus			KEYWORD2
+deleteResponse			KEYWORD2
+end				KEYWORD2
+newCommand			KEYWORD2
+newRequest			KEYWORD2
+requestAndResponse		KEYWORD2
+requestAndResponseWithRetry	KEYWORD2
+responseError			KEYWORD2
+sendRequest			KEYWORD2
+sendRequestWithRetry		KEYWORD2
+setDebugOutputStream		KEYWORD2
+setFnI2cMutex			KEYWORD2
+setFnNoteMutex			KEYWORD2
+setTransactionPins		KEYWORD2
+
+########################################
+## CONSTANTS
+########################################
+Notecard_h			LITERAL1
+Notecarrier_h			LITERAL1
+NOTE_ARDUINO_VERSION		LITERAL1
+NOTE_ARDUINO_VERSION_MAJOR	LITERAL1
+NOTE_ARDUINO_VERSION_MINOR	LITERAL1
+NOTE_ARDUINO_VERSION_PATCH	LITERAL1
+
+########################################
+## DATA TYPES
+########################################
+
+########################################
+# NOTE: Variables and KEYWORDs must be tab delimited.
+# https://forum.arduino.cc/t/keywords-txt/145895/15
+########################################

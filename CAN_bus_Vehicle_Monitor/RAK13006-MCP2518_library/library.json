@@ -1,0 +1,32 @@
+{
+	"name": "RAK13006-MCP2518 library",
+	"version": "1.0.0",
+	"keywords": [
+		"CAN BUS",
+		"MCP2518",
+		"RAKWireless",
+		"WisBlock",
+		"RAK13006"
+	],
+	"description": "RAKWireless library for the RAK13006 module with MCP2518",
+	"frameworks": [
+		"arduino"
+	],
+	"platforms": [
+		"*"
+	],
+	"license": "GNU",
+	"authors": [
+		{
+			"email": "tinapeng.liu@rakwireless.com",
+			"url": "https://rakwireless.com",
+			"maintainer": true,
+			"name": "tinapeng liu"
+		}
+	],
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/RAKWireless/RAK13006-MCP2518"
+	},
+	"homepage": "https://rakwireless.com"
+}
